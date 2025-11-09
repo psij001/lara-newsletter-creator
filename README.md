@@ -288,3 +288,4 @@ For issues with:
 ---
 
 **Built with ❤️ for abstract artists everywhere**
+# Trigger Vercel rebuild with corrected root directory settings
