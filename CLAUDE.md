@@ -13,7 +13,7 @@ This is a Next.js 16 application for generating AI-powered email newsletters for
 ### High-Level Structure
 
 ```
-code/
+/
 ├── app/
 │   ├── api/generate/route.ts          # Claude API integration (server route)
 │   ├── page.tsx                       # Main React component with state management
@@ -29,17 +29,20 @@ code/
 │   ├── prompts.ts                     # System prompt (trained on Lara's voice)
 │   ├── types.ts                       # TypeScript interfaces
 │   └── utils.ts                       # Utility functions
-└── hooks/
-    └── use-toast.ts                   # Toast notifications
+├── hooks/
+│   └── use-toast.ts                   # Toast notifications
+├── package.json                       # Dependencies
+├── next.config.mjs                    # Next.js config
+└── tsconfig.json                      # TypeScript config
 
-Key app file: code/app/page.tsx
+Key app file: app/page.tsx
 ```
 
 ### Data Flow
 
 1. **User inputs content notes** → stored in React state
 2. **User clicks "Generate"** → POST to `/api/generate` with notes + conversation history
-3. **Server route** (`app/api/generate/route.ts`) calls Claude API with:
+3. **Server route** (`/app/api/generate/route.ts`) calls Claude API with:
    - System prompt (trained on Lara's actual newsletters)
    - Conversation history (for iterative refinement)
    - User's input notes
@@ -58,7 +61,6 @@ Key app file: code/app/page.tsx
 ## Common Development Commands
 
 ```bash
-# From the code/ directory
 npm run dev          # Start dev server (localhost:3000)
 npm run build        # Build for production
 npm start            # Run production build locally
@@ -98,7 +100,7 @@ Manages:
 
 ## Environment Setup
 
-Create `/code/.env.local`:
+Create `/.env.local`:
 ```
 ANTHROPIC_API_KEY=sk-ant-v7-...your-key...
 ```
@@ -174,6 +176,6 @@ Phase 2 planned features:
 
 ## Cursor Rules & Documentation
 
-See [`PROMPT_CUSTOMIZATION.md`](code/PROMPT_CUSTOMIZATION.md) for details on how the system prompt was trained on Lara's actual voice.
+See [PROMPT_CUSTOMIZATION.md](PROMPT_CUSTOMIZATION.md) for details on how the system prompt was trained on Lara's actual voice.
 
-See [`README.md`](code/README.md) for user-facing documentation including deployment, troubleshooting, and API route specs.
+See [README.md](README.md) for user-facing documentation including deployment, troubleshooting, and API route specs.
