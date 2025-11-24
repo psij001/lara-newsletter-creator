@@ -198,8 +198,8 @@ export default function Home() {
         <Header />
 
         <div className="flex-1 overflow-auto">
-          <div className="max-w-7xl mx-auto p-6 md:p-12 w-full">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+          <div className="max-w-3xl mx-auto p-6 md:p-12 w-full">
+            <div className="flex flex-col gap-10">
               {/* Input Section */}
               <InputSection
                 inputNotes={inputNotes}
